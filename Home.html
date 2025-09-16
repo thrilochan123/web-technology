@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Book Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #ffe6f0; /* soft pink */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .top-frame {
+      height: 27vh;
+      border: 3px solid #FF6F61;
+      width: 100%;
+      background-color: #fff0f5;
+      box-shadow: 0 4px 8px rgba(255,111,97,0.2);
+      border-radius: 8px;
+    }
+    .bottom-container {
+      height: 73vh;
+      display: flex;
+      width: 100%;
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 3px solid #6A5ACD;
+      background-color: #f3f0ff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(106,90,205,0.2);
+    }
+    .left-frame {
+      width: 19%;
+      border: 3px solid #20B2AA;
+      background-color: #e0ffff;
+      border-radius: 8px;
+      box-shadow: inset 0 0 8px #20b2aa88;
+    }
+    .right-frame {
+      width: 81%;
+      border: 3px solid #4682B4;
+      background-color: #f0f8ff;
+      flex-grow: 1;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px #4682b488;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="frame1.html" class="top-frame" title="Navigation"></iframe>
+
+  <div class="bottom-container">
+    <iframe src="frame2.html" class="left-frame" title="Departments"></iframe>
+    <iframe src="frame3.html" name="showframe" class="right-frame" title="Content"></iframe>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
