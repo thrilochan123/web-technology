@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration Page Validation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      max-width: 520px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(255,111,97,0.3);
+      background-color: white;
+    }
+    .btn-primary {
+      background-color: #FF6F61;
+      border: none;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background-color: #e65b4e;
+    }
+  </style>
+</head>
+<body>
+  <div class="card shadow">
+    <h2 class="mb-4 text-center fw-bold">Online Registration Page</h2>
+    <form name="regform" action="login.html" method="post" novalidate onsubmit="return validateForm()">
+      <div class="mb-3">
+        <label for="fname" class="form-label">First Name</label>
+        <input type="text" maxlength="20" class="form-control" id="fname" name="fname" onblur="unamevalidation()" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" maxlength="20" class="form-control" id="lname" name="lname" />
+      </div>
+
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Password</label>
+        <input type="password" maxlength="20" class="form-control" id="pwd" name="pwd" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="cpwd" class="form-label">Confirm Password</label>
+        <input type="password" maxlength="20" class="form-control" id="cpwd" name="cpwd" onblur="pwdvalidation()" required />
+      </div>
+
+      <fieldset class="mb-3">
+        <legend class="col-form-label pt-0">Gender</legend>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="male" required />
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="female" />
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+      </fieldset>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Id</label>
+        <input
+          type="email"
+          maxlength="40"
+          class="form-control"
+          id="email"
+          name="email"
+          onblur="emailvalidation()"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="phno" class="form-label">Phone Number</label>
+        <input
+          type="text"
+          maxlength="10"
+          class="form-control"
+          id="phno"
+          name="phno"
+          onblur="phnovalidation()"
+          required
+          pattern="[0-9]{10}"
+          title="Enter a 10 digit phone number"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-secondary ms-2">Reset</button>
+    </form>
+  </div>
+
+  <script>
+    function unamevalidation() {
+      const fname = document.regform.fname.value.trim();
+      const splchar = /[!@#$%^&*()\-+=\[\]\\';,.|{}":<>?~]/;
+      if (fname.length < 6) {
+        alert("First name must have at least 6 characters");
+        return false;
+      }
+      if (splchar.test(fname)) {
+        alert("User ID should not have any special characters");
+        return false;
+      }
+      return true;
+    }
+
+    function pwdvalidation() {
+      const pw = document.regform.pwd.value;
+      const cpw = document.regform.cpwd.value;
+      if (pw.length < 6) {
+        alert("Password must contain at least 6 characters");
+        return false;
+      }
+      if (pw !== cpw) {
+        alert("Passwords do not match");
+        return false;
+      }
+      alert("Password validation has been successful");
+      return true;
+    }
+
+    function emailvalidation() {
+      const emailid = document.regform.email.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailid)) { 
+        alert("Invalid email address");
+        return false;
+      }
+      alert("Given email id is valid");
+      return true;
+    }
+
+    function phnovalidation() {
+      const ph = document.regform.phno.value.trim();
+      if (ph.length !== 10 || isNaN(ph)) {
+        alert("Please enter a valid 10-digit phone number");
+        return false;
+      }
+      alert("It is a valid number");
+      return true;
+    }
+
+    // Overall validation before submit
+    function validateForm() {
+      if (!unamevalidation()) return false;
+      if (!pwdvalidation()) return false;
+      if (!emailvalidation()) return false;
+      if (!phnovalidation()) return false;
+      return true;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
