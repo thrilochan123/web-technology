@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    table {
+      max-width: 650px;
+      margin: auto;
+      box-shadow: 0 4px 15px rgba(255,111,97,0.3);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      vertical-align: middle !important;
+    }
+    .table-dark {
+      background-color: #FF6F61 !important;
+      color: white !important;
+    }
+    .fw-bold {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container text-center my-5">
+    <h1 class="mb-4 fw-bold" style="color: #FF6F61;">Cart Page</h1>
+    <table class="table table-bordered table-striped mx-auto">
+      <thead class="table-dark">
+        <tr>
+          <th>Book name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>C++</td>
+          <td>$40.50</td>
+          <td>1</td>
+          <td>$40.50</td>
+        </tr>
+        <tr>
+          <td>Python</td>
+          <td>$45.00</td>
+          <td>2</td>
+          <td>$90.00</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="text-end fw-bold">Total amount:</td>
+          <td class="fw-bold">$130.50</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
